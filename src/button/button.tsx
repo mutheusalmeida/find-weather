@@ -1,4 +1,4 @@
-import { ButtonType } from 'button'
+import { ButtonType } from 'components-types'
 
 import * as S from './styles'
 

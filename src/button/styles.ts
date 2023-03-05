@@ -1,5 +1,5 @@
 import styled from 'styled-components/native'
-import { ButtonType } from 'button'
+import { ButtonType } from 'components-types'
 
 export const Button = styled.TouchableOpacity.attrs(() => ({
   activeOpacity: 0.75,

@@ -1,4 +1,4 @@
-declare module 'button' {
+declare module 'components-types' {
   import { TouchableOpacityProps } from 'react-native'
 
   export type ButtonType = {
@@ -9,4 +9,12 @@ declare module 'button' {
     height: number;
     width: number;
  } & TouchableOpacityProps
+
+  export type TextType = {
+    color: string,
+    font: string,
+    fontSize: number,
+    lineHeight: number,
+    children: ReactNode,
+  } & Component
 }
