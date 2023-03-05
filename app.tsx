@@ -1,21 +1,31 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
-import { useFonts, Overpass_600SemiBold } from '@expo-google-fonts/overpass';
-import * as SplashScreen from 'expo-splash-screen';
-import { useCallback } from 'react';
+import { StatusBar } from 'expo-status-bar'
+import { StyleSheet, Text, View } from 'react-native'
+import {
+  useFonts,
+  Overpass_300Light,
+  Overpass_400Regular,
+  Overpass_600SemiBold,
+  Overpass_700Bold,
+} from '@expo-google-fonts/overpass'
+import * as SplashScreen from 'expo-splash-screen'
+import { useCallback } from 'react'
+import { Button } from './src/button'
 
 SplashScreen.preventAutoHideAsync()
 
 export default function App() {
   const [fontsLoaded] = useFonts({
+    Overpass_300Light,
+    Overpass_400Regular,
     Overpass_600SemiBold,
-  });
+    Overpass_700Bold,
+  })
 
   const onLayoutRootView = useCallback(async () => {
     if (fontsLoaded) {
-      await SplashScreen.hideAsync();
+      await SplashScreen.hideAsync()
     }
-  }, [fontsLoaded]);
+  }, [fontsLoaded])
 
   if (!fontsLoaded) {
     return null
@@ -26,8 +36,27 @@ export default function App() {
       <Text style={styles.title}>Descubra o Clima na sua Cidade</Text>
       <Text style={styles.desc}>Com o FindWeather nunca ficou tão fácil ter a previsão do tempo na palma da sua mão</Text>
       <StatusBar style="light" />
+
+      <Button
+        height={54}
+        width={328}
+        backgroundColor='#23262B'
+        borderRadius={18}
+        borderColor='#838384'
+      >
+        <Text
+          style={{
+            color: '#fff',
+            fontFamily: 'Overpass_400Regular',
+            fontSize: 22,
+            lineHeight: 32,
+        }}
+        >
+          Iniciar
+        </Text>
+      </Button>
     </View>
-  );
+  )
 }
 
 const styles = StyleSheet.create({
@@ -54,4 +83,4 @@ const styles = StyleSheet.create({
     maxWidth: 360,
     textAlign: 'center',
   }
-});
+})
