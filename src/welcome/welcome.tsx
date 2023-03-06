@@ -1,6 +1,5 @@
 import { StatusBar } from 'expo-status-bar'
 import { Button } from '../button'
-import { Text } from '../text'
 
 import * as S from './styles'
 
@@ -20,14 +19,7 @@ export const Welcome = () => {
         borderRadius={18}
         borderColor='#838384'
       >
-        <Text
-          color='#fff'
-          fontFamily='Overpass_400Regular'
-          fontSize={22}
-          lineHeight={32}
-        >
-          Iniciar
-        </Text>
+        <S.BtnText>Iniciar</S.BtnText>
       </Button>
     </S.WelcomeContainer>
   )

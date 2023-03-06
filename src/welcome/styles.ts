@@ -26,3 +26,10 @@ export const Desc = styled(Text)`
   max-width: 360px;
   text-align: center;
 `
+
+export const BtnText = styled(Text)`
+  color: #fff;
+  font-family: 'Overpass_400Regular';
+  font-size: 22px;
+  line-height: 32px;
+`
