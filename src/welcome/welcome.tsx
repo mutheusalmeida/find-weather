@@ -1,16 +1,16 @@
-import { StatusBar } from 'expo-status-bar'
 import { Button } from '../button'
+import cloudImg from '../assets/cloud-and-thunder.png'
 
 import * as S from './styles'
 
 export const Welcome = () => {
   return (
     <S.WelcomeContainer>
+      <S.Image source={cloudImg} />
+
       <S.Title>Descubra o Clima na sua Cidade</S.Title>
 
       <S.Desc>Com o FindWeather nunca ficou tão fácil ter a previsão do tempo na palma da sua mão</S.Desc>
-
-      <StatusBar style="light" />
 
       <Button
         height={54}

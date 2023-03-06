@@ -5,8 +5,14 @@ export const WelcomeContainer = styled.View`
   display: flex;
   flex: 1;
   flex-direction: column;
-  align-items: end;
+  justify-content: flex-end;
+  align-items: center;
   gap: 33px;
+  padding: 16px 16px 54px;
+`
+
+export const Image = styled.Image`
+  margin-bottom: 24px;
 `
 
 export const Title = styled(Text)`
@@ -25,6 +31,7 @@ export const Desc = styled(Text)`
   font-family: 'Overpass_600SemiBold';
   max-width: 360px;
   text-align: center;
+  margin-bottom: 41px;
 `
 
 export const BtnText = styled(Text)`
