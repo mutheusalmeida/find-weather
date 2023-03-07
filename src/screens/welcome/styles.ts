@@ -1,5 +1,5 @@
 import styled from 'styled-components/native'
-import { Text } from '../text'
+import { Button, Text } from '../../styles'
 
 export const WelcomeContainer = styled.View`
   display: flex;
@@ -25,18 +25,17 @@ export const Title = styled(Text)`
 `
 
 export const Desc = styled(Text)`
-  color: #AFAFAF;
-  font-size: 22px;
-  line-height: 28px;
   font-family: 'Overpass_600SemiBold';
   max-width: 360px;
   text-align: center;
   margin-bottom: 41px;
+  color: #AFAFAF;
+  `
+
+export const BoldText = styled(Desc)`
+  font-family: 'Overpass_700Bold';
 `
 
-export const BtnText = styled(Text)`
-  color: #fff;
-  font-family: 'Overpass_400Regular';
-  font-size: 22px;
-  line-height: 32px;
-`
+export const StartBtn = styled(Button)``
+
+export const BtnText = styled(Text)``

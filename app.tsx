@@ -9,15 +9,13 @@ import * as SplashScreen from 'expo-splash-screen'
 import { StatusBar } from 'expo-status-bar'
 import { useCallback } from 'react'
 import styled from 'styled-components/native'
-import { Welcome } from './src/welcome'
+import { Welcome } from './src/screens/welcome'
 
 SplashScreen.preventAutoHideAsync()
 
 const Container = styled.View`
   flex: 1;
   background-color: #1B1D22;
-  align-items: center;
-  justify-content: center;
 `
 
 export default function App() {
@@ -40,9 +38,9 @@ export default function App() {
 
   return (
     <Container onLayout={onLayoutRootView}>
-      <Welcome />
-
       <StatusBar style="light" />
+
+      <Welcome />
     </Container>
   )
 }
