@@ -8,7 +8,8 @@ import {
 import * as SplashScreen from 'expo-splash-screen'
 import { StatusBar } from 'expo-status-bar'
 import { useCallback } from 'react'
-import styled from 'styled-components/native'
+import styled, { ThemeProvider } from 'styled-components/native'
+import { theme } from './src/resources/theme'
 import { Welcome } from './src/screens/welcome'
 
 SplashScreen.preventAutoHideAsync()
@@ -37,10 +38,12 @@ export default function App() {
   }
 
   return (
-    <Container onLayout={onLayoutRootView}>
-      <StatusBar style="light" />
+    <ThemeProvider theme={theme}>
+      <Container onLayout={onLayoutRootView}>
+        <StatusBar style="light" />
 
-      <Welcome />
-    </Container>
+        <Welcome />
+      </Container>
+    </ThemeProvider>
   )
 }

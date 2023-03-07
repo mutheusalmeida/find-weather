@@ -16,24 +16,23 @@ export const Image = styled.Image`
 `
 
 export const Title = styled(Text)`
-  color: #FFF;
-  font-size: 33px;
+  font-size: ${({ theme }) => `${theme.fontSize.xxl33}px`};
   line-height: 42px;
-  font-family: 'Overpass_600SemiBold';
+  font-family: ${({ theme }) => theme.fontFamily.OverpassSemiBold};
   max-width: 304px;
   text-align: center;
 `
 
-export const Desc = styled(Text)`
-  font-family: 'Overpass_600SemiBold';
+export const Desc = styled(Title)`
+  font-size: ${({ theme }) => `${theme.fontSize.md22}px`};
+  font-family: ${({ theme }) => theme.fontFamily.OverpassSemiBold};
   max-width: 360px;
-  text-align: center;
   margin-bottom: 41px;
-  color: #AFAFAF;
+  color: ${({ theme }) => theme.colors.gray200};
   `
 
 export const BoldText = styled(Desc)`
-  font-family: 'Overpass_700Bold';
+  font-family: ${({ theme }) => theme.fontFamily.OverpassBold};
 `
 
 export const StartBtn = styled(Button)``
