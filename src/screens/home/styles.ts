@@ -1,7 +1,7 @@
 import styled from 'styled-components/native'
-import { Button, Text } from '../../styles'
+import { Text } from '../../styles'
 
-export const WelcomeContainer = styled.View`
+export const HomeContainer = styled.View`
   display: flex;
   flex: 1;
   flex-direction: column;
@@ -19,7 +19,7 @@ export const Image = styled.Image`
 export const Title = styled(Text)`
   font-size: ${({ theme }) => `${theme.fontSize.xxl33}px`};
   line-height: 42px;
-  font-family: ${({ theme }) => theme.fontFamily.OverpassSemiBold};
+  font-family: ${({ theme }) => theme.fontFamily.OverpassRegular};
   max-width: 304px;
   text-align: center;
 `
@@ -32,10 +32,6 @@ export const Desc = styled(Title)`
   color: ${({ theme }) => theme.colors.gray200};
   `
 
-export const BoldText = styled(Desc)`
+export const BoldText = styled(Title)`
   font-family: ${({ theme }) => theme.fontFamily.OverpassBold};
 `
-
-export const StartBtn = styled(Button)``
-
-export const BtnText = styled(Text)``

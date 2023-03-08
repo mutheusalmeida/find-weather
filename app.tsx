@@ -11,12 +11,17 @@ import { useCallback } from 'react'
 import styled, { ThemeProvider } from 'styled-components/native'
 import { theme } from './src/resources/theme'
 import { Welcome } from './src/screens/welcome'
+import { createNativeStackNavigator } from '@react-navigation/native-stack'
+import { NavigationContainer } from '@react-navigation/native'
+import { Home } from './src/screens/home'
 
 SplashScreen.preventAutoHideAsync()
 
+const Stack = createNativeStackNavigator()
+
 const Container = styled.View`
   flex: 1;
-  background-color: #1B1D22;
+  background-color: ${({ theme }) => theme.colors.dark};
 `
 
 export default function App() {
@@ -42,7 +47,15 @@ export default function App() {
       <Container onLayout={onLayoutRootView}>
         <StatusBar style="light" />
 
-        <Welcome />
+        <NavigationContainer>
+
+          <Stack.Navigator
+            initialRouteName='Welcome'
+          >
+            <Stack.Screen name='Welcome' component={Welcome} />
+            <Stack.Screen name='Home' component={Home} />
+          </Stack.Navigator>
+        </NavigationContainer>
       </Container>
     </ThemeProvider>
   )
