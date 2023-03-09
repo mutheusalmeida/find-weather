@@ -28,6 +28,7 @@ export const Desc = styled(Title)`
   font-size: ${({ theme }) => `${theme.fontSize.md22}px`};
   font-family: ${({ theme }) => theme.fontFamily.OverpassSemiBold};
   max-width: 360px;
+  line-height: 28px;
   margin-bottom: 41px;
   color: ${({ theme }) => theme.colors.gray200};
   `
