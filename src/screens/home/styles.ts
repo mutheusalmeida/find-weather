@@ -1,5 +1,6 @@
 import styled from 'styled-components/native'
 import { Text } from '../../styles'
+import { TouchableOpacityProps } from 'react-native'
 
 type EmptyType = {
   isEmpty: boolean
@@ -12,7 +13,6 @@ export const HomeContainer = styled.View<EmptyType>`
 `
 
 export const HomeWrapper = styled.View<EmptyType>`
-  display: flex;
   flex: 1;
   flex-direction: column;
   justify-content: space-between;
@@ -32,11 +32,18 @@ export const Title = styled(Text)`
   text-align: center;
 `
 
-export const LocationWrapper = styled.View`
-  display: flex;
-  align-items: center;
+export const LocationContainer = styled.View`
   flex-direction: row;
-  gap: 3px;
+  height: 35px;
+`
+
+export const LocationIcon = styled.View`
+  flex-direction: column;
+  align-self: flex-end;
+`
+
+export const LocationWrapper = styled.View`
+  flex-direction: column;
 `
 
 export const Location = styled(Text)`
@@ -44,7 +51,17 @@ export const Location = styled(Text)`
   line-height: 38px;
 `
 
-export const Desc = styled(Title)`
+export const Date = styled(Text)`
+  font-size: ${({ theme }) => `${theme.fontSize.xs16}px`};
+  color: ${({ theme }) => theme.colors.gray100};
+  line-height: 20px;
+`
+
+export const SelectButton= styled.TouchableOpacity.attrs(() => ({
+  activeOpacity: 0.75,
+}))<TouchableOpacityProps>``
+
+export const SelectText = styled(Title)`
   font-size: ${({ theme }) => `${theme.fontSize.md22}px`};
   font-family: ${({ theme }) => theme.fontFamily.OverpassRegular};
   color: ${({ theme }) => theme.colors.gray100};
@@ -54,4 +71,30 @@ export const Desc = styled(Title)`
 
 export const BoldText = styled(Title)`
   font-family: ${({ theme }) => theme.fontFamily.OverpassBold};
+`
+
+export const CurrentWeather = styled(LocationWrapper)`
+  align-items: center;
+`
+
+export const TempWrapper = styled(LocationWrapper)`
+  flex-direction: row;
+  align-items: flex-start;
+`
+
+export const TempNum = styled(Text)`
+  font-family: ${({ theme }) => theme.fontFamily.OverpassBold};
+  font-size: 76px;
+  line-height: 96px;
+`
+
+export const Weather = styled(Text)`
+  font-family: ${({ theme }) => theme.fontFamily.OverpassRegular};
+  font-size: 30px;
+  line-height: 38px;
+  color: ${({ theme }) => theme.colors.gray100};
+`
+
+export const Celcius = styled(Weather)`
+  color: ${({ theme }) => theme.colors.white};
 `

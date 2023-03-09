@@ -17,7 +17,6 @@ export const Button = styled.TouchableOpacity.attrs(() => ({
   height: ${({ height }) => `${height || 54}px`};
   max-width: 100%;
   width: ${({ width }) => `${width || 328}px`};
-  display: flex;
   align-items: center;
   justify-content: center;
 `

@@ -2,7 +2,6 @@ import styled from 'styled-components/native'
 import { Button, Text } from '../../styles'
 
 export const WelcomeContainer = styled.View`
-  display: flex;
   flex: 1;
   flex-direction: column;
   justify-content: flex-end;

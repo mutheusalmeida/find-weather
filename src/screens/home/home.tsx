@@ -3,7 +3,7 @@ import rainingImg from '../../assets/raining.png'
 import { TabBtn } from '../../tab-btn'
 import { useTheme } from 'styled-components/native'
 import { useState } from 'react'
-import { MaterialIcons } from '@expo/vector-icons';
+import { MaterialIcons } from '@expo/vector-icons'
 
 import * as S from './styles'
 
@@ -20,21 +20,39 @@ export const Home = () => {
 
             <S.Image source={climateChangeImg} />
 
-            <S.Desc onPress={() => setIsEmpty(false)}>Selecione aqui um local e encontre o clima em tempo real</S.Desc>
+            <S.SelectButton onPress={() => setIsEmpty(false)}>
+              <S.SelectText>Selecione aqui um local e encontre o clima em tempo real</S.SelectText>
+            </S.SelectButton>
           </>
         ) : (
           <>
-            <S.LocationWrapper>
+          <S.LocationContainer>
+            <S.LocationIcon>
               <MaterialIcons
                 name="location-on"
-                size={18}
+                size={22}
                 color={theme.colors.white}
               />
+            </S.LocationIcon>
 
+            <S.LocationWrapper>
               <S.Location>A Corunã, Espanha</S.Location>
-            </S.LocationWrapper>
 
-            <S.Image source={rainingImg} />
+              <S.Date>Domingo, 01 Jan de 2023</S.Date>
+            </S.LocationWrapper>
+          </S.LocationContainer>
+
+            <S.CurrentWeather>
+              <S.Image source={rainingImg} />
+
+              <S.TempWrapper>
+                <S.TempNum>23</S.TempNum>
+
+                <S.Celcius>º</S.Celcius>
+              </S.TempWrapper>
+
+              <S.Weather>Chuva Moderada</S.Weather>
+            </S.CurrentWeather>
           </>
         )}
       </S.HomeWrapper>
