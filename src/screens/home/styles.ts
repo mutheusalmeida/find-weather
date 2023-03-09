@@ -18,7 +18,7 @@ export const HomeWrapper = styled.View<EmptyType>`
   justify-content: space-between;
   align-items: center;
   gap: 33px;
-  padding: 0 0 ${({ isEmpty }) => isEmpty ? `${68}px` : `${13}px`};
+  padding: 0 0 ${({ isEmpty }) => isEmpty ? `${72}px` : `${41}px`};
 `
 
 export const Image = styled.Image`

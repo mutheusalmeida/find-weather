@@ -26,21 +26,21 @@ export const Home = () => {
           </>
         ) : (
           <>
-          <S.LocationContainer>
-            <S.LocationIcon>
-              <MaterialIcons
-                name="location-on"
-                size={22}
-                color={theme.colors.white}
-              />
-            </S.LocationIcon>
+            <S.LocationContainer>
+              <S.LocationIcon>
+                <MaterialIcons
+                  name="location-on"
+                  size={22}
+                  color={theme.colors.white}
+                />
+              </S.LocationIcon>
 
-            <S.LocationWrapper>
-              <S.Location>A Corunã, Espanha</S.Location>
+              <S.LocationWrapper>
+                <S.Location>A Corunã, Espanha</S.Location>
 
-              <S.Date>Domingo, 01 Jan de 2023</S.Date>
-            </S.LocationWrapper>
-          </S.LocationContainer>
+                <S.Date>Domingo, 01 Jan de 2023</S.Date>
+              </S.LocationWrapper>
+            </S.LocationContainer>
 
             <S.CurrentWeather>
               <S.Image source={rainingImg} />

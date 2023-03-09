@@ -52,8 +52,16 @@ export default function App() {
           <Stack.Navigator
             initialRouteName='Welcome'
           >
-            <Stack.Screen name='Welcome' component={Welcome} />
-            <Stack.Screen name='Home' component={Home} />
+            <Stack.Screen
+              name='Welcome'
+              options={{ headerShown: false }}
+              component={Welcome}
+            />
+            <Stack.Screen
+              name='Home'
+              options={{ headerShown: false }}
+              component={Home}
+            />
           </Stack.Navigator>
         </NavigationContainer>
       </Container>
