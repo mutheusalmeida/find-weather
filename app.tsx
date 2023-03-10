@@ -19,7 +19,7 @@ SplashScreen.preventAutoHideAsync()
 
 const Stack = createNativeStackNavigator()
 
-const Container = styled.View`
+const Container = styled.SafeAreaView`
   flex: 1;
   background-color: ${({ theme }) => theme.colors.dark};
 `
@@ -48,7 +48,6 @@ export default function App() {
         <StatusBar style="light" />
 
         <NavigationContainer>
-
           <Stack.Navigator
             initialRouteName='Welcome'
           >

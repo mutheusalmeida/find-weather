@@ -6,6 +6,7 @@ import { useState } from 'react'
 import { MaterialIcons } from '@expo/vector-icons'
 
 import * as S from './styles'
+import { WeatherDetails } from '../../weather-details'
 
 export const Home = () => {
   const theme = useTheme()
@@ -53,6 +54,18 @@ export const Home = () => {
 
               <S.Weather>Chuva Moderada</S.Weather>
             </S.CurrentWeather>
+
+            <S.Details>
+              {new Array(3).fill(0).map((item, index) => (
+                <WeatherDetails
+                  key={index}
+                  icon={''}
+                  value={''}
+                  label={''}
+                  hasBorder={index !== 3 && index !== 0}
+                />
+              ))}
+            </S.Details>
           </>
         )}
       </S.HomeWrapper>

@@ -98,3 +98,12 @@ export const Weather = styled(Text)`
 export const Celcius = styled(Weather)`
   color: ${({ theme }) => theme.colors.white};
 `
+
+export const Details = styled.SafeAreaView`
+  width: 100%;
+  flex-direction: row;
+  justify-content: space-evenly;
+  padding: 10px 12px 6px;
+  border: 1px solid ${({ theme }) => theme.colors.gray600};
+  border-radius: 18px;
+`
