@@ -108,9 +108,36 @@ export const Details = styled.View`
   border-radius: 18px;
 `
 
-export const DaysWeather = styled(Details)`
+export const DaysWeather = styled(LocationWrapper)`
+  width: 100%;
+  flex-direction: row;
   justify-content: space-between;
-  padding: 0;
-  border: none;
-  border-radius: 0;
+`
+
+export const DaysWeatherWrapper = styled(LocationWrapper)`
+  width: 100%;
+  gap: 20px;
+`
+
+export const DaysWeatherHeader = styled(LocationWrapper)`
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
+`
+
+export const Today = styled(Text)`
+  font-size: ${({ theme }) => `${theme.fontSize.md20}px`};
+  line-height: 25px;
+`
+
+export const NextDays = styled(LocationWrapper)`
+  flex-direction: row;
+  gap: 4px;
+`
+
+export const NextDaysText = styled(Text)`
+  font-family: ${({ theme }) => theme.fontFamily.OverpassSemiBold};
+  font-size: ${({ theme }) => `${theme.fontSize.xs16}px`};
+  color: ${({ theme }) => theme.colors.gray100};
+  line-height: 20px;
 `

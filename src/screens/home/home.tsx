@@ -6,6 +6,7 @@ import { useState } from 'react'
 import { MaterialIcons } from '@expo/vector-icons'
 import { WeatherDetails } from '../../weather-details'
 import { WeatherDay } from '../../weather-day'
+import { SimpleLineIcons } from '@expo/vector-icons';
 
 import * as S from './styles'
 
@@ -68,16 +69,28 @@ export const Home = () => {
               ))}
             </S.Details>
 
-            <S.DaysWeather>
-              {new Array(4).fill(0).map((_, index) => (
-                <WeatherDay
-                  key={index}
-                  icon={''}
-                  value={''}
-                  hour={''}
-                />
-              ))}
-            </S.DaysWeather>
+            <S.DaysWeatherWrapper>
+              <S.DaysWeatherHeader>
+                <S.Today>Hoje</S.Today>
+
+                <S.NextDays>
+                  <S.NextDaysText>Próximos 5 dias</S.NextDaysText>
+
+                  <SimpleLineIcons name="arrow-right" size={16} color={theme.colors.gray100} />
+                </S.NextDays>
+              </S.DaysWeatherHeader>
+
+              <S.DaysWeather>
+                {new Array(4).fill(0).map((_, index) => (
+                  <WeatherDay
+                    key={index}
+                    icon={''}
+                    value={''}
+                    hour={''}
+                  />
+                ))}
+              </S.DaysWeather>
+            </S.DaysWeatherWrapper>
           </>
         )}
       </S.HomeWrapper>

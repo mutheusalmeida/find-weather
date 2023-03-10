@@ -9,6 +9,7 @@ export const WeatherContainer = styled.View`
   border: 1.5px solid ${({ theme }) => theme.colors.dark100};
   border-radius: 20px;
   padding: 6px 16px;
+  height: 90px;
 `
 
 export const Icon = styled.Image`
@@ -42,6 +43,7 @@ export const Hour = styled(Text)`
   font-family: ${({ theme }) => theme.fontFamily.OverpassBold};
   font-size: ${({ theme }) => `${theme.fontSize.xxxs12}px`};
   line-height: 15px;
+  height: 100%;
   color: ${({ theme }) => theme.colors.gray100};
   text-align: center;
 `
