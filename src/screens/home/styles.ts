@@ -95,15 +95,22 @@ export const Weather = styled(Text)`
   color: ${({ theme }) => theme.colors.gray100};
 `
 
-export const Celcius = styled(Weather)`
+export const Celsius = styled(Weather)`
   color: ${({ theme }) => theme.colors.white};
 `
 
-export const Details = styled.SafeAreaView`
+export const Details = styled.View`
   width: 100%;
   flex-direction: row;
   justify-content: space-evenly;
   padding: 10px 12px 6px;
   border: 1px solid ${({ theme }) => theme.colors.gray600};
   border-radius: 18px;
+`
+
+export const DaysWeather = styled(Details)`
+  justify-content: space-between;
+  padding: 0;
+  border: none;
+  border-radius: 0;
 `

@@ -4,9 +4,10 @@ import { TabBtn } from '../../tab-btn'
 import { useTheme } from 'styled-components/native'
 import { useState } from 'react'
 import { MaterialIcons } from '@expo/vector-icons'
+import { WeatherDetails } from '../../weather-details'
+import { WeatherDay } from '../../weather-day'
 
 import * as S from './styles'
-import { WeatherDetails } from '../../weather-details'
 
 export const Home = () => {
   const theme = useTheme()
@@ -49,7 +50,7 @@ export const Home = () => {
               <S.TempWrapper>
                 <S.TempNum>23</S.TempNum>
 
-                <S.Celcius>º</S.Celcius>
+                <S.Celsius>º</S.Celsius>
               </S.TempWrapper>
 
               <S.Weather>Chuva Moderada</S.Weather>
@@ -66,6 +67,17 @@ export const Home = () => {
                 />
               ))}
             </S.Details>
+
+            <S.DaysWeather>
+              {new Array(4).fill(0).map((_, index) => (
+                <WeatherDay
+                  key={index}
+                  icon={''}
+                  value={''}
+                  hour={''}
+                />
+              ))}
+            </S.DaysWeather>
           </>
         )}
       </S.HomeWrapper>
