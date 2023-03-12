@@ -8,7 +8,7 @@ type WeatherDayProps = {
   hour: string
 }
 
-export const WeatherDay = ({ icon, value, hour }: WeatherDayProps) => {
+export const WeatherDay = ({ icon, value, hour }: WeatherDayProps): JSX.Element => {
   return (
     <S.WeatherContainer>
       <S.Value>

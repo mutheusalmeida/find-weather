@@ -10,7 +10,7 @@ import { SimpleLineIcons } from '@expo/vector-icons';
 
 import * as S from './styles'
 
-export const Home = () => {
+export const Home = (): JSX.Element => {
   const theme = useTheme()
   const [isEmpty, setIsEmpty] = useState(true)
 

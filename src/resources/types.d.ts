@@ -15,4 +15,5 @@ declare module 'components-types' {
     fontSize?: number,
     lineHeight?: number,
   } & TextProps
+
 }

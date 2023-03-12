@@ -6,7 +6,7 @@ type WelcomeProps = {
   navigation: any;
 }
 
-export const Welcome = ({ navigation }: WelcomeProps) => {
+export const Welcome = ({ navigation }: WelcomeProps): JSX.Element => {
   return (
     <S.WelcomeContainer>
       <S.Image source={cloudImg} />

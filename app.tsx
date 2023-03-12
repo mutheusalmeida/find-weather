@@ -10,14 +10,9 @@ import { StatusBar } from 'expo-status-bar'
 import { useCallback } from 'react'
 import styled, { ThemeProvider } from 'styled-components/native'
 import { theme } from './src/resources/theme'
-import { Welcome } from './src/screens/welcome'
-import { createNativeStackNavigator } from '@react-navigation/native-stack'
-import { NavigationContainer } from '@react-navigation/native'
-import { Home } from './src/screens/home'
+import { Routes } from './src/routes'
 
 SplashScreen.preventAutoHideAsync()
-
-const Stack = createNativeStackNavigator()
 
 const Container = styled.SafeAreaView`
   flex: 1;
@@ -47,22 +42,7 @@ export default function App() {
       <Container onLayout={onLayoutRootView}>
         <StatusBar style="light" />
 
-        <NavigationContainer>
-          <Stack.Navigator
-            initialRouteName='Welcome'
-          >
-            <Stack.Screen
-              name='Welcome'
-              options={{ headerShown: false }}
-              component={Welcome}
-            />
-            <Stack.Screen
-              name='Home'
-              options={{ headerShown: false }}
-              component={Home}
-            />
-          </Stack.Navigator>
-        </NavigationContainer>
+        <Routes />
       </Container>
     </ThemeProvider>
   )

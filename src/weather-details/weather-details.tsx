@@ -9,7 +9,7 @@ type WeatherDetailsProps = {
   hasBorder: boolean
 }
 
-export const WeatherDetails = ({ icon, value, label, hasBorder }: WeatherDetailsProps) => {
+export const WeatherDetails = ({ icon, value, label, hasBorder }: WeatherDetailsProps): JSX.Element => {
   return (
     <S.WeatherContainer>
       {hasBorder && (

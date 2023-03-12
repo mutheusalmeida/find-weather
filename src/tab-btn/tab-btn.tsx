@@ -9,7 +9,7 @@ type TabBtnProps = {
   text: string
 }
 
-export const TabBtn = ({ name, size, color, text }: TabBtnProps) => {
+export const TabBtn = ({ name, size, color, text }: TabBtnProps): JSX.Element => {
   return (
     <S.BtnContainer>
       <Octicons name={name} size={size} color={color} />
