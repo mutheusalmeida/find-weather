@@ -18,7 +18,7 @@ export const Routes = (): JSX.Element => {
         />
 
         <Screen
-          name='Home'
+          name='App'
           options={{ headerShown: false }}
           component={Home}
         />

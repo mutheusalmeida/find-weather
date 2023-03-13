@@ -15,7 +15,7 @@ export const Welcome = ({ navigation }: WelcomeProps): JSX.Element => {
 
       <S.Desc>Com o <S.BoldText>FindWeather</S.BoldText> nunca ficou tão fácil ter a previsão do tempo na palma da sua mão</S.Desc>
 
-      <S.StartBtn onPress={() => navigation.navigate('Home')}>
+      <S.StartBtn onPress={() => navigation.navigate('App')}>
         <S.BtnText>Iniciar</S.BtnText>
       </S.StartBtn>
     </S.WelcomeContainer>
