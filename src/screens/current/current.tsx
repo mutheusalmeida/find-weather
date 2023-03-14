@@ -1,19 +1,53 @@
 import climateChangeImg from '../../assets/climate-change.png'
-import rainingImg from '../../assets/raining.png'
 import { useTheme } from 'styled-components/native'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { MaterialIcons } from '@expo/vector-icons'
 import { WeatherDetails } from '../../weather-details'
 import { WeatherDay } from '../../weather-day'
 import { SimpleLineIcons } from '@expo/vector-icons'
 import * as Location from 'expo-location'
+import { FindWeatherApi } from '../../services/find-weather-api'
+import { formatCountry, formatDate } from '../../utils/format'
+import { ImageSourcePropType } from 'react-native'
 
 import * as S from './styles'
+
+type DataType = {
+  current: {
+    cloud: number
+    condition: {
+      code: number
+      icon: ImageSourcePropType
+      text: string
+    },
+      feelslike_c: number
+      feelslike_f: number
+      gust_kph: number
+      gust_mph: number
+      humidity: number
+      is_day: number
+      last_updated: string
+      precip_in: number
+      precip_mm: number
+      pressure_in: number
+      pressure_mb: number
+      temp_c: number
+      uv: number
+      vis_km: number
+      vis_miles: number
+      wind_kph: number
+    },
+    location: {
+      country: string
+      name: string
+      region: string
+    }
+  }
 
 export const Current = (): JSX.Element => {
   const theme = useTheme()
   const [location, setLocation] = useState<Location.LocationObject | null>(null)
-  const { WEATHER_API_KEY } = process.env
+  const [data, setData] = useState<DataType | null>(null)
 
   const getLocation = async () => {
     const { status } = await Location.requestForegroundPermissionsAsync()
@@ -25,10 +59,20 @@ export const Current = (): JSX.Element => {
     setLocation(location)
   }
 
+  useEffect(() => {
+    (async () => {
+      if (!location) return
+
+      const data = await FindWeatherApi.getCurrentLocation(location.coords.latitude, location.coords.longitude)
+
+      setData(data.data)
+    })()
+  }, [location])
+
   return (
-    <S.HomeContainer isEmpty={Boolean(!location)}>
-      <S.HomeWrapper isEmpty={Boolean(!location)}>
-        {location ? (
+    <S.HomeContainer isEmpty={Boolean(!data)}>
+      <S.HomeWrapper isEmpty={Boolean(!data)}>
+        {location && data ? (
           <>
             <S.LocationContainer>
               <S.LocationIcon>
@@ -40,22 +84,22 @@ export const Current = (): JSX.Element => {
               </S.LocationIcon>
 
               <S.LocationWrapper>
-                <S.Location>A Corunã, Espanha</S.Location>
+                <S.Location>{data.location.name}, {formatCountry(data.location.country)}</S.Location>
 
-                <S.Date>Domingo, 01 Jan de 2023</S.Date>
+                <S.Date>{formatDate(data.current.last_updated)}</S.Date>
               </S.LocationWrapper>
             </S.LocationContainer>
 
             <S.CurrentWeather>
-              <S.Image source={rainingImg} />
+              <S.Image source={data.current.condition.icon} />
 
               <S.TempWrapper>
-                <S.TempNum>23</S.TempNum>
+                <S.TempNum>{data.current.temp_c}</S.TempNum>
 
                 <S.Celsius>º</S.Celsius>
               </S.TempWrapper>
 
-              <S.Weather>Chuva Moderada</S.Weather>
+              <S.Weather>{data.current.condition.text}</S.Weather>
             </S.CurrentWeather>
 
             <S.Details>
