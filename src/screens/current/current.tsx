@@ -8,7 +8,6 @@ import { SimpleLineIcons } from '@expo/vector-icons'
 import * as Location from 'expo-location'
 import { FindWeatherApi } from '../../services/find-weather-api'
 import { formatCountry, formatDate } from '../../utils/format'
-import { ImageSourcePropType } from 'react-native'
 
 import * as S from './styles'
 
@@ -17,7 +16,7 @@ type DataType = {
     cloud: number
     condition: {
       code: number
-      icon: ImageSourcePropType
+      icon: string
       text: string
     },
       feelslike_c: number
@@ -91,7 +90,7 @@ export const Current = (): JSX.Element => {
             </S.LocationContainer>
 
             <S.CurrentWeather>
-              <S.Image source={data.current.condition.icon} />
+              <S.Image source={{ uri: `http://${data.current.condition.icon}` }} />
 
               <S.TempWrapper>
                 <S.TempNum>{data.current.temp_c}</S.TempNum>

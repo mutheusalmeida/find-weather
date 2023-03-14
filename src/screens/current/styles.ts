@@ -22,6 +22,8 @@ export const HomeWrapper = styled.View<EmptyType>`
 `
 
 export const Image = styled.Image`
+  width: 172px;
+  height: 140px;
   margin-bottom: 24px;
 `
 
