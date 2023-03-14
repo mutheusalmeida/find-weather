@@ -20,3 +20,7 @@ export const Button = styled.TouchableOpacity.attrs(() => ({
   align-items: center;
   justify-content: center;
 `
+
+export const TabButton = styled.TouchableOpacity.attrs(() => ({
+  activeOpacity: 0.75,
+}))``

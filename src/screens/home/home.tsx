@@ -3,6 +3,7 @@ import { Current } from '../../screens/current'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 import { theme } from '../../resources/theme'
 import { Octicons } from '@expo/vector-icons'
+import { TabButton, Text } from '../../styles'
 
 import * as S from './styles'
 
@@ -14,6 +15,30 @@ export const Home = (): JSX.Element => {
       <TabNavigator
         initialRouteName='Home'
         screenOptions={({ route }) => ({
+          tabBarStyle: {
+            height: 60,
+            backgroundColor: theme.colors.dark,
+            borderTopColor: 'transparent',
+            width: '75%',
+            alignSelf: 'center',
+          },
+          tabBarIconStyle: {
+            width: 30,
+            height: 30,
+          },
+          tabBarItemStyle: {
+            gap: 6,
+            height: 30,
+            borderColor: 'transparent'
+          },
+          tabBarActiveTintColor: theme.colors.white,
+          tabBarInactiveTintColor: theme.colors.gray500,
+          tabBarActiveBackgroundColor: theme.colors.dark,
+          tabBarInactiveBackgroundColor: theme.colors.dark,
+          tabBarLabelPosition: 'beside-icon',
+          tabBarButton: ({ children, ...props }) => (
+            <TabButton {...props}>{children}</TabButton>
+          ),
           tabBarIcon: ({ focused }) => (
             <Octicons
               name={route.name === 'Home' ? 'home' : 'search'}
@@ -21,11 +46,13 @@ export const Home = (): JSX.Element => {
               color={focused ? theme.colors.white : theme.colors.gray500}
             />
           ),
-          tabBarActiveTintColor: theme.colors.white,
-          tabBarInactiveTintColor: theme.colors.gray500,
-          tabBarActiveBackgroundColor: theme.colors.dark,
-          tabBarInactiveBackgroundColor: theme.colors.dark,
-          tabBarLabelPosition: 'beside-icon',
+          tabBarLabel: ({ focused, children, color }) => (
+            <Text
+              fontFamily={focused ? theme.fontFamily.OverpassSemiBold : theme.fontFamily.OverpassLight}
+              fontSize={16}
+              color={color}
+            >{children}</Text>
+          ),
         })}
       >
         <TabScreen
@@ -35,8 +62,7 @@ export const Home = (): JSX.Element => {
         />
 
         <TabScreen
-          name='Search'
-          options={{ headerShown: false }}
+          name='Buscar'
           component={Search}
         />
       </TabNavigator>

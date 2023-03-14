@@ -6,27 +6,29 @@ import { MaterialIcons } from '@expo/vector-icons'
 import { WeatherDetails } from '../../weather-details'
 import { WeatherDay } from '../../weather-day'
 import { SimpleLineIcons } from '@expo/vector-icons'
+import * as Location from 'expo-location'
 
 import * as S from './styles'
 
 export const Current = (): JSX.Element => {
   const theme = useTheme()
-  const [isEmpty, setIsEmpty] = useState(true)
+  const [location, setLocation] = useState<Location.LocationObject | null>(null)
+  const { WEATHER_API_KEY } = process.env
+
+  const getLocation = async () => {
+    const { status } = await Location.requestForegroundPermissionsAsync()
+
+    if (status !== 'granted') return
+
+    const location = await Location.getCurrentPositionAsync({})
+
+    setLocation(location)
+  }
 
   return (
-    <S.HomeContainer isEmpty={isEmpty}>
-      <S.HomeWrapper isEmpty={isEmpty}>
-        {isEmpty ? (
-          <>
-            <S.Title>Find<S.BoldText>Weather</S.BoldText></S.Title>
-
-            <S.Image source={climateChangeImg} />
-
-            <S.SelectButton onPress={() => setIsEmpty(false)}>
-              <S.SelectText>Selecione aqui um local e encontre o clima em tempo real</S.SelectText>
-            </S.SelectButton>
-          </>
-        ) : (
+    <S.HomeContainer isEmpty={Boolean(!location)}>
+      <S.HomeWrapper isEmpty={Boolean(!location)}>
+        {location ? (
           <>
             <S.LocationContainer>
               <S.LocationIcon>
@@ -90,6 +92,16 @@ export const Current = (): JSX.Element => {
                 ))}
               </S.DaysWeather>
             </S.DaysWeatherWrapper>
+          </>
+        ) : (
+          <>
+            <S.Title>Find<S.BoldText>Weather</S.BoldText></S.Title>
+
+            <S.Image source={climateChangeImg} />
+
+            <S.SelectButton onPress={getLocation}>
+              <S.SelectText>Selecione aqui um local e encontre o clima em tempo real</S.SelectText>
+            </S.SelectButton>
           </>
         )}
       </S.HomeWrapper>
