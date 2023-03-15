@@ -21,9 +21,11 @@ export const HomeWrapper = styled.View<EmptyType>`
   padding: 0 0 ${({ isEmpty }) => isEmpty ? `${72}px` : `${41}px`};
 `
 
-export const Image = styled.Image`
-  width: 172px;
-  height: 140px;
+export const HomeIcon = styled.Image``
+
+export const WeatherIcon = styled(HomeIcon)`
+  width: 64px;
+  height: 64px;
   margin-bottom: 24px;
 `
 
@@ -95,6 +97,7 @@ export const Weather = styled(Text)`
   font-size: 30px;
   line-height: 38px;
   color: ${({ theme }) => theme.colors.gray100};
+  text-align: center;
 `
 
 export const Celsius = styled(Weather)`

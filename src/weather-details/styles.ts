@@ -1,6 +1,11 @@
 import styled from 'styled-components/native'
 import { Text } from '../styles'
 
+type IconType = {
+  width: number
+  height: number
+}
+
 export const WeatherContainer = styled.View`
   gap: 6px;
   flex-direction: column;
@@ -8,7 +13,10 @@ export const WeatherContainer = styled.View`
   flex: 1;
 `
 
-export const Icon = styled.Image``
+export const Icon = styled.Image<IconType>`
+  width: ${({ width }) => `${width}px`};
+  height: ${({ height }) => `${height}px`};
+`
 
 export const TextWrapper = styled.View``
 
