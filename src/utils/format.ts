@@ -17,5 +17,8 @@ export const formatDate = (date: string) => {
 
   const formatedDate = newDate.toLocaleString('pt-BR', options)
 
-  return formatedDate.split(' ').map(word => word.length > 2 ? word[0].toUpperCase() + word.slice(1) : word).join(' ').replace('.', '')
+  return {
+    getFullDate: () => formatedDate.split(' ').map(word => word.length > 2 ? word[0].toUpperCase() + word.slice(1) : word).join(' ').replace('.', ''),
+    getHours: () => newDate.toLocaleTimeString('pt-BR', { hour: '2-digit' })
+  }
 }
