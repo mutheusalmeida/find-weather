@@ -4,12 +4,32 @@ import { Button, Text } from '../../styles'
 export const SearchContainer = styled.View`
   flex: 1;
   align-items: center;
-  padding: 32px 16px;
+  padding: 48px 16px;
   background-color: ${({ theme }) => theme.colors.dark};
 `
 
-export const Image = styled.Image`
-  margin-bottom: 24px;
+export const TextInputContainer = styled.SafeAreaView`
+  flex-direction: row;
+  gap: 16px;
+`
+
+export const TextInputWrapper = styled.View``
+
+export const InputButton = styled(Button)`
+  background-color: ${({ theme }) => theme.colors.dark400};
+  width: 49px;
+  height: 49px;
+  border-radius: 11px;
+  border: none;
+`
+
+export const TextInput = styled.TextInput`
+  height: 49px;
+  background-color: ${({ theme }) => theme.colors.dark400};
+  font-size: 16px;
+  color: ${({ theme }) => theme.colors.white};
+  padding: 0 16px 0 46px;
+  border-radius: 11px;
 `
 
 export const Title = styled(Text)`
