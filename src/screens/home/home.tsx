@@ -19,6 +19,7 @@ export const Home = (): JSX.Element => {
             height: 60,
             backgroundColor: theme.colors.dark,
             borderTopColor: 'transparent',
+            elevation: 0,
             width: '75%',
             alignSelf: 'center',
           },
